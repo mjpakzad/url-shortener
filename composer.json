@@ -1,0 +1,23 @@
+{
+    "name": "mjpakzad/url-shortener",
+    "description": "Url shortener to shrink your long url.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "helpers/config.php"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mojaba Pakzad",
+            "email": "dr.jpakzad@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

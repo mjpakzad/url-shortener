@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    # Redirect all incoming requests to the index.php
+   RewriteEngine On
+   RewriteCond %{REQUEST_FILENAME}  -f [OR]
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteRule ^(.*)$ index.php [L,QSA]
+</IfModule>
