@@ -57,7 +57,7 @@ class DomainController extends Controller
         // Add domain.
         $domain = new Domain();
         $domain->create([
-            'user_id'   => 1,
+            'user_id'   => $user->id,
             'domain'    => $_POST['domain'],
             'status'    => true,
         ]);

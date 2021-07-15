@@ -112,9 +112,15 @@ class Router
             $controller->$act();
             return;
         }
-
-        // TODO:: For dynamic routes must write something
-        echo '<pre>' . print_r([$segmentIndex, $segmentParameters], true) . '</pre>';
-        echo $this->routes[strtolower($method)][$segmentIndex];
+        if (isset($segmentParameters)) {
+            $seg = $this->routes[strtolower($method)][$segmentIndex];
+            $con = '\\' . $this->namespace . '\\' . $seg['controller'];
+            $act = $seg['action'];
+            $controller = new $con();
+            $controller->$act(end($segmentParameters));
+            return;
+        }
+        $controller = new Controller();
+        $controller->notFound();
     }
 }
