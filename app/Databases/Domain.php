@@ -13,12 +13,18 @@ class Domain extends Database implements CRUD
 
     public function read($params)
     {
-        return $this->from('domains')->where('`domain` = \'' . $params['domain'] . '\'')->get();
+        $query = $this->from('domains');
+        if(isset($params['domain'])) {
+            return $query->where('`domain` = \'' . $params['domain'] . '\'')->get();
+        }
+        return $query->all();
     }
 
     public function update($id, $params)
     {
-
+        $params['id']       = $id;
+        $database           = $this->getDatabase();
+        $this->trigger("UPDATE $database.domains SET status=:status WHERE id=:id", $params);
     }
 
     public function delete($id)

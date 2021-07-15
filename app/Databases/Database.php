@@ -59,7 +59,7 @@ class Database
         return $this;
     }
 
-    public function get()
+    protected function queryBuilder()
     {
         $query = 'SELECT ' . (empty($this->select) ? '*' : implode(',', $this->select));
         $query .= ' FROM ' . $this->database . '.' . $this->table;
@@ -72,9 +72,23 @@ class Database
         if (!empty($this->limit)) {
             $query .= ' LIMIT (' . $this->limit . ')';
         }
+        return $query;
+    }
+
+    public function get()
+    {
+        $query = $this->queryBuilder();
         $statementHandler = $this->connection->query($query);
         $statementHandler->setFetchMode(\PDO::FETCH_OBJ);
         return $statementHandler->fetch();
+    }
+
+    public function all()
+    {
+        $query = $this->queryBuilder();
+        $statementHandler = $this->connection->query($query);
+        $statementHandler->setFetchMode(\PDO::FETCH_OBJ);
+        return $statementHandler->fetchAll();
     }
 
     public function trigger($query, array $params)

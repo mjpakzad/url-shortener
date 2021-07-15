@@ -104,8 +104,7 @@ class Router
                 $controller->notFound();
                 return;
             }
-        }
-        if($segmentIndex != '') {
+
             $seg = $this->routes[strtolower($method)][$segmentIndex];
             $con = '\\' . $this->namespace . '\\' . $seg['controller'];
             $act = $seg['action'];

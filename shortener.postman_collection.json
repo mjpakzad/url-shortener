@@ -88,11 +88,19 @@
 		},
 		{
 			"name": "Domains List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
-					"raw": "http://127.0.0.1/url-shortener/api/domains",
+					"raw": "http://127.0.0.1/url-shortener/api/domains?token={{TOKEN}}",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -104,6 +112,12 @@
 						"url-shortener",
 						"api",
 						"domains"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						}
 					]
 				}
 			},
@@ -124,7 +138,7 @@
 						},
 						{
 							"key": "token",
-							"value": "fsdfsd",
+							"value": "{{TOKEN}}",
 							"type": "text"
 						}
 					]
