@@ -166,8 +166,12 @@
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
-					"raw": "http://127.0.0.1/url-shortener/api/Domains/{domain}",
+					"raw": "http://127.0.0.1/url-shortener/api/domains?token={{TOKEN}}&domain=https://example.com&status=1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -178,8 +182,21 @@
 					"path": [
 						"url-shortener",
 						"api",
-						"Domains",
-						"{domain}"
+						"domains"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						},
+						{
+							"key": "domain",
+							"value": "https://example.com"
+						},
+						{
+							"key": "status",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -190,7 +207,21 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://127.0.0.1/url-shortener/api/links",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"url-shortener",
+						"api",
+						"links"
+					]
+				}
 			},
 			"response": []
 		},
@@ -199,7 +230,46 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "text"
+						},
+						{
+							"key": "domain",
+							"value": "https://example.com",
+							"type": "text"
+						},
+						{
+							"key": "short",
+							"value": "laravel2",
+							"type": "text"
+						},
+						{
+							"key": "long",
+							"value": "https://baversion.com/series/learn-laravel",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1/url-shortener/api/links",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"url-shortener",
+						"api",
+						"links"
+					]
+				}
 			},
 			"response": []
 		},
@@ -208,7 +278,39 @@
 			"request": {
 				"method": "PATCH",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1/url-shortener/api/links?token={{TOKEN}}&short=laravel&new-short=laravel-course",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"url-shortener",
+						"api",
+						"links"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						},
+						{
+							"key": "short",
+							"value": "laravel"
+						},
+						{
+							"key": "new-short",
+							"value": "laravel-course"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -217,7 +319,31 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://127.0.0.1/url-shortener/api/links?token={{TOKEN}}&short=laravel2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"url-shortener",
+						"api",
+						"links"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}"
+						},
+						{
+							"key": "short",
+							"value": "laravel2"
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -226,7 +352,21 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://127.0.0.1/url-shortener/api/laravel",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"url-shortener",
+						"api",
+						"laravel"
+					]
+				}
 			},
 			"response": []
 		}

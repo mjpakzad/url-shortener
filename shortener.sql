@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2021 at 09:35 AM
+-- Generation Time: Jul 15, 2021 at 02:54 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -34,6 +34,14 @@ CREATE TABLE `domains` (
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `domains`
+--
+
+INSERT INTO `domains` (`id`, `user_id`, `domain`, `status`) VALUES
+(1, 1, 'https://example.com', 1),
+(2, 1, 'https://example.org', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +55,13 @@ CREATE TABLE `links` (
   `short_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `long_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `links`
+--
+
+INSERT INTO `links` (`id`, `user_id`, `domain_id`, `short_url`, `long_url`) VALUES
+(1, 1, 1, 'laravel', 'https://baversion.com/series/learn-laravel');
 
 -- --------------------------------------------------------
 
@@ -68,7 +83,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `token`, `is_admin`) VALUES
-(1, 'Mojtaba Pakzad', 'dr.jpakzad@gmail.com', '$2y$12$cS5.nNBkDlZzlWI83jMIUeXwbq6GMHYteJVIXt72jlwNc6TRysd1O', 'ef678ba867055714097d7c2fe440227cf8fa4d8d', 1);
+(1, 'Mojtaba Pakzad', 'dr.jpakzad@gmail.com', '$2y$12$ReBtAd1iRqdEEvNVahzZwezOgYeLUNxTgsnws/WvEDW3X7n5nrdoa', 'd41943c0d5df7ad65651b8f4884d85e019521595', 1);
 
 --
 -- Indexes for dumped tables
@@ -105,13 +120,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `domains`
 --
 ALTER TABLE `domains`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
