@@ -40,11 +40,11 @@ class DomainController extends Controller
         // Add domain.
         $domain = new Domain();
         $domain->create([
-            'user_id'   => $_POST['name'],
+            'user_id'   => 1,
             'domain'    => $_POST['domain'],
             'status'    => true,
         ]);
-        $this->header(200, 'Thank you ' . $_POST['name'] . ', You registered successfully.');
+        $this->header(200, 'The domain added successfully.');
     }
 
     public function update()
